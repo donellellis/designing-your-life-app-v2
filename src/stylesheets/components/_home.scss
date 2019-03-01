@@ -1,0 +1,40 @@
+@import '../base/_all.scss';
+
+.home{
+    @include center-column;
+    text-align: center;
+    height:100vh;
+    background-color: $backgroundColorPrimary;
+    background-image: $imageCover;
+    background-repeat: no-repeat;
+    background-size: 600px;
+    background-position: center; 
+    color: white;
+
+    h1{
+        font-size: 50px;
+        margin:10px;
+    }
+
+    h2{
+        font-size: 40px;
+        margin: 10px;
+    }
+
+    p{
+        width: 400px;
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+
+    .home-signUp{
+        @include button;
+        background-color: $textColorSecondary;
+        border-radius: 5px;
+    }
+
+    .home-login{
+        @include button;
+        background-color: transparent;
+    }
+}

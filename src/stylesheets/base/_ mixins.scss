@@ -1,0 +1,12 @@
+@mixin center-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin button{
+    padding: 6px;
+    font-size: 15px;
+    border: none;
+}
