@@ -3,7 +3,7 @@
 .home{
     @include center-column;
     text-align: center;
-    height:100vh;
+    height:calc(100vh - 30px);
     background-color: $backgroundColorPrimary;
     background-image: $imageCover;
     background-repeat: no-repeat;
@@ -12,29 +12,27 @@
     color: white;
 
     h1{
-        font-size: 50px;
-        margin:10px;
+        @include title
     }
 
     h2{
-        font-size: 40px;
-        margin: 10px;
+        @include heading
     }
 
     p{
-        width: 400px;
-        margin-top: 15px;
-        margin-bottom: 25px;
+        width: $homeModalWidth;
+        @include paragraph
     }
 
     .home-signUp{
         @include button;
         background-color: $textColorSecondary;
-        border-radius: 5px;
+        color: $textColorPrimary;
     }
 
     .home-login{
         @include button;
         background-color: transparent;
+        color: $textColorTertiary;
     }
 }

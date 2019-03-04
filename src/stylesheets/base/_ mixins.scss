@@ -9,4 +9,72 @@
     padding: 6px;
     font-size: 15px;
     border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+@mixin inputSingleLine{
+    border-bottom: 2px $textColorPrimary solid;
+    margin: 5px 0px;
+    font-size: 15px;
+    color: $textColorTertiary;
+}
+
+@mixin title{
+    font-size: 50px;
+    margin:10px;
+}
+
+@mixin heading{
+    font-size: 40px;
+    margin: 10px;
+}
+
+@mixin sub-heading{
+    font-size: 30px;
+    margin: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: $textColorTertiary;
+}
+
+@mixin paragraph{
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+@mixin modalForm{
+    @include center-column; 
+    position: absolute;
+    width: $homeModalWidth;
+    height: $homeModalWidth;
+    background-color: $textColorSecondary;
+    color: $textColorPrimary;
+    border-radius: 50%;
+    border: 3px solid $textColorPrimary;
+    h1{
+        @include sub-heading
+    }
+    form{
+        @include center-column;
+    }
+    
+    input, label{
+        display: block;
+    }
+    .inputField{
+        @include inputSingleLine;
+        width: 250px;
+    }
+    label{
+        text-align: left;
+        font-size: 18px;
+        margin: 5px 0px;
+    }
+    .submitButton{
+        @include button;
+        background-color: $textColorPrimary;
+        margin-top: 25px;
+        color: $textColorSecondary;
+    }
 }
