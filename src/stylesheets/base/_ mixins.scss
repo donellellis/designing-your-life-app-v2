@@ -66,6 +66,9 @@
         @include inputSingleLine;
         width: 250px;
     }
+    .inputFieldPassword{
+        -webkit-text-security: disc;
+    }
     label{
         text-align: left;
         font-size: 18px;

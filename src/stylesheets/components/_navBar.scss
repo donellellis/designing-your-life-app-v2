@@ -1,3 +1,13 @@
 .navBar{
-    height: 30px;
+    position: fixed;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100vw;
+    background-color: white;
+}
+
+.navItem{
+    @include button;
+    color: $textColorTertiary;
+    margin: 3px 10px;
 }

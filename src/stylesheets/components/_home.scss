@@ -3,7 +3,7 @@
 .home{
     @include center-column;
     text-align: center;
-    height:calc(100vh - 30px);
+    height:100vh;
     background-color: $backgroundColorPrimary;
     background-image: $imageCover;
     background-repeat: no-repeat;

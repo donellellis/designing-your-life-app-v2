@@ -34,8 +34,8 @@ class Home extends Component{
                 <p>A companion app for the book, Designing Your Life: How to Build a Well-Lived, Joyful Life, by Bill Burnett and Dave Evans</p>
                 <button className='home-signUp' onClick={this.toggleHiddenSignUp}>Sign Up</button>
                 <button className='home-login' onClick={this.toggleHiddenLogIn}>Log In</button>
-                {!this.state.signUpIsHidden && <SignUpForm toggleHiddenSignUp={this.toggleHiddenSignUp}></SignUpForm>}
-                {!this.state.logInIsHidden && <LogInForm toggleHiddenLogIn={this.toggleHiddenLogIn}></LogInForm>}
+                {!this.state.signUpIsHidden && <SignUpForm toggleHiddenSignUp={this.toggleHiddenSignUp} handleInput={this.props.handleInput} handleSignUp={this.props.handleSignUp} isLoggedIn={this.props.isLoggedIn}></SignUpForm>}
+                {!this.state.logInIsHidden && <LogInForm toggleHiddenLogIn={this.toggleHiddenLogIn} handleInput={this.props.handleInput} handleLogIn={this.props.handleLogIn} isLoggedIn={this.props.isLoggedIn}></LogInForm>}
             </div>
         )
     }

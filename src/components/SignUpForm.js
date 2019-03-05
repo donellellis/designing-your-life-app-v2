@@ -1,6 +1,7 @@
 // code excerpts from https://medium.com/@pitipatdop/little-neat-trick-to-capture-click-outside-react-component-5604830beb7f
 
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 
 class SignUpForm extends Component{
 
@@ -31,6 +32,9 @@ class SignUpForm extends Component{
     }
 
     render(){
+        if (this.props.isLoggedIn){
+            return <Redirect to={'/here/'}/>;
+          }
         return(
             <div ref={el => this.node = el} className='signUpForm'>
                 <h1>Sign Up</h1>
@@ -41,7 +45,7 @@ class SignUpForm extends Component{
                     </label>
                     <label>
                         password
-                        <input className='inputField' type='text' name='password' onChange={this.props.handleInput}/>
+                        <input className='inputField inputFieldPassword' type='text' name='password' onChange={this.props.handleInput}/>
                     </label>
                     <input className='submitButton' value='Sign Up' type='submit' onClick={this.props.handleSignUp}/>
                 </form>

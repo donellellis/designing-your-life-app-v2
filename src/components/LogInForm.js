@@ -39,9 +39,9 @@ class LogInForm extends Component{
                     </label>
                     <label>
                         password
-                        <input className='inputField' type='text' name='password' onChange={this.props.handleInput}/>
+                        <input className='inputField inputFieldPassword' type='text' name='password' onChange={this.props.handleInput}/>
                     </label>
-                    <input className='submitButton' value='Sign Up' type='submit' onClick={this.props.handleSignUp}/>
+                    <input className='submitButton' value='Log In' type='submit' onClick={this.props.handleLogIn}/>
                 </form>
             </div>
         )

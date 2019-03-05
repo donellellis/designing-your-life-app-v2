@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-class LogOut extends Component {
+class Here extends Component{
     render(){
         return(
-            <div className='logOut'>
-
+            <div className="here">
+            Testing Here
             </div>
         )
     }
 }
 
-export default LogOut
+export default Here

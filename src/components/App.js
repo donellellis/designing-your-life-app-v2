@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 import Home from './Home'
 import NavBar from './NavBar'
-import LogInForm from './LogInForm'
-import LogOut from './LogOut'
+import Here from './Here'
 
 // defines environmental variables
-const backendBaseUrl = (process.env.NODE_ENV === "development") ? process.env.REACT_APP_DEVELOPMENT : process.env.REACT_APP_PRODUCTION
+// const backendBaseUrl = (process.env.NODE_ENV === "development") ? process.env.REACT_APP_DEVELOPMENT : process.env.REACT_APP_PRODUCTION
 
 class App extends Component {
 
@@ -19,6 +18,10 @@ class App extends Component {
       password: '',
       isLoggedIn: false
     }
+    this.handleLogOut = this.handleLogOut.bind(this)
+    this.handleInput = this.handleInput.bind(this)
+    this.handleLogIn = this.handleLogIn.bind(this)
+    this.handleSignUp = this.handleSignUp.bind(this)
   }
 
   componentDidMount(){
@@ -34,6 +37,7 @@ class App extends Component {
   }
 
   handleLogOut(){
+    console.log("handling logout")
     this.setState({
       email: '',
       password: '',
@@ -53,7 +57,7 @@ class App extends Component {
   handleSignUp(e){
     e.preventDefault()
     console.log('in sign up')
-    axios.post( backendBaseUrl + '/users/signup', {
+    axios.post( 'http://localhost:4000/users/signup', {
       email: this.state.email,
       password: this.state.password
     })
@@ -68,7 +72,7 @@ class App extends Component {
 
   handleLogIn(e) {
     e.preventDefault()
-    axios.post(backendBaseUrl + '/users/login/', {
+    axios.post('http://localhost:4000/users/login/', {
       email: this.state.email,
       password: this.state.password
     })
@@ -82,29 +86,20 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-          <NavBar isLoggedIn={this.state.isLoggedIn}></NavBar>
+          <NavBar isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut}></NavBar>
           <Route exact path="/"
             render={(props) => {
               return (
-                <Home isLoggedIn={this.state.isLoggedIn}/>
+                <Home isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleLogIn={this.handleLogIn} handleSignUp={this.handleSignUp}/>
               )
             }}/>
-   
-          <Route exact path='/logout/'
-            render={(props) => {
-              return (
-                <LogOut isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut} />
-              )
-            }}
-          />
-
-          <Route exact path='/login/'
-            render={(props) => {
-              return (
-                <LogInForm isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleLogIn={this.handleLogIn} />
-              )
-            }}
-          />
+          <Route exact path='/here/' render={(props) => (
+            this.state.isLoggedIn ? (
+              <Here/>
+            ) : (
+              <Redirect to='/'/>
+            )
+          )}/>
       </div>
     );
   }
