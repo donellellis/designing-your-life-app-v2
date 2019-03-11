@@ -43,7 +43,7 @@
     margin-bottom: 25px;
 }
 
-@mixin modalForm{
+@mixin modalRoundBackground{
     @include center-column; 
     position: absolute;
     width: $homeModalWidth;
@@ -52,6 +52,10 @@
     color: $textColorPrimary;
     border-radius: 50%;
     border: 3px solid $textColorPrimary;
+}
+
+@mixin modalForm{
+    @include modalRoundBackground;
     h1{
         @include sub-heading
     }

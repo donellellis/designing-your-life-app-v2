@@ -1,0 +1,38 @@
+.here{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 35px);
+    background-color: $backgroundColorPrimary;
+
+    .here-image-wrapper{
+        @include center-column;
+        position: relative;
+        width: 200px;
+        height: 300px;
+        text-align: center;
+    }
+    
+    .here-image{
+        height: 100%;
+    }
+    
+    h1{
+        position: absolute;
+        color: $textColorTertiary;
+        @include heading;
+        margin: 0px;
+        font-weight: bold;
+        text-transform: uppercase;
+        top: 20px;
+    }
+
+    p{
+        @include heading;
+        color: $textColorSecondary;
+        max-width: 800px;
+        padding: 10px;
+        align-self: center;
+    }
+}
+

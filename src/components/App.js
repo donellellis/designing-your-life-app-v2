@@ -66,7 +66,7 @@ class App extends Component {
       this.setState({
         isLoggedIn: true
       })
-      .catch(err => console.log(err))
+      // .catch(err => console.log(err))
     })
   }
 
@@ -95,7 +95,7 @@ class App extends Component {
             }}/>
           <Route exact path='/here/' render={(props) => (
             this.state.isLoggedIn ? (
-              <Here/>
+              <Here isLoggedIn={this.state.isLoggedIn}/>
             ) : (
               <Redirect to='/'/>
             )
