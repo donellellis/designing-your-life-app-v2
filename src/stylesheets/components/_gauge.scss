@@ -1,0 +1,5 @@
+.complexGauge{
+    @include modalForm;
+    position: initial;
+    border-color: $textColorAccent;
+}

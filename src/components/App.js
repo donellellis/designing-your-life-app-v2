@@ -88,12 +88,13 @@ class App extends Component {
     return (
       <div className='app'>
           <NavBar isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut}></NavBar>
-          <Route exact path='/'
-            render={(props) => {
-              return (
-                <Home isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleLogIn={this.handleLogIn} handleSignUp={this.handleSignUp}/>
-              )
-            }}/>
+          <Route exact path='/' render={(props) => (
+            this.state.isLoggedIn ? (
+              <Redirect to='/dashboard'/>
+            ) : (
+              <Home isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleLogIn={this.handleLogIn} handleSignUp={this.handleSignUp}/>
+            )
+          )}/>
           <Route exact path='/here/' render={(props) => (
             this.state.isLoggedIn ? (
               <Here isLoggedIn={this.state.isLoggedIn}/>
