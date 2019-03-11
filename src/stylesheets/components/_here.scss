@@ -1,16 +1,30 @@
 .here{
+    
     display: flex;
     justify-content: center;
     align-items: center;
     height: calc(100vh - 35px);
     background-color: $backgroundColorPrimary;
 
+    .here-text-wrapper{
+        @include center-column;
+        margin: 0px 0px 0px 300px;
+        .fa-chevron-circle-right{
+            font-size: 40px;
+            color: $textColorAccent;
+            background-color: transparent;
+            border: none;
+        }
+    }
+
     .here-image-wrapper{
         @include center-column;
+        align-self: flex-end;
         position: relative;
-        width: 200px;
+        width: 300px;
         height: 300px;
         text-align: center;
+        margin-bottom: 50px;
     }
     
     .here-image{
@@ -30,9 +44,10 @@
     p{
         @include heading;
         color: $textColorSecondary;
-        max-width: 800px;
         padding: 10px;
         align-self: center;
+        margin: 0px;
+        font-weight: lighter;
     }
 }
 

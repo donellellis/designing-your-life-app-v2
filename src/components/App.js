@@ -5,6 +5,7 @@ import axios from 'axios'
 import Home from './Home'
 import NavBar from './NavBar'
 import Here from './Here'
+import Dashboard from './Dashboard'
 
 // defines environmental variables
 // const backendBaseUrl = (process.env.NODE_ENV === "development") ? process.env.REACT_APP_DEVELOPMENT : process.env.REACT_APP_PRODUCTION
@@ -66,7 +67,6 @@ class App extends Component {
       this.setState({
         isLoggedIn: true
       })
-      // .catch(err => console.log(err))
     })
   }
 
@@ -78,16 +78,17 @@ class App extends Component {
     })
     .then(response => {
       localStorage.token = response.data.token
-      this.setState({isLoggedIn: true})
+      this.setState({
+        isLoggedIn: true
+      })
     })
-    .catch(err => console.log(err))
   }
 
   render() {
     return (
       <div className='app'>
           <NavBar isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut}></NavBar>
-          <Route exact path="/"
+          <Route exact path='/'
             render={(props) => {
               return (
                 <Home isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleLogIn={this.handleLogIn} handleSignUp={this.handleSignUp}/>
@@ -96,6 +97,13 @@ class App extends Component {
           <Route exact path='/here/' render={(props) => (
             this.state.isLoggedIn ? (
               <Here isLoggedIn={this.state.isLoggedIn}/>
+            ) : (
+              <Redirect to='/'/>
+            )
+          )}/>
+            <Route exact path='/dashboard/' render={(props) => (
+            this.state.isLoggedIn ? (
+              <Dashboard isLoggedIn={this.state.isLoggedIn}/>
             ) : (
               <Redirect to='/'/>
             )

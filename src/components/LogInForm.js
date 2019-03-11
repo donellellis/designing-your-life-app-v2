@@ -1,6 +1,7 @@
 // code excerpts from https://medium.com/@pitipatdop/little-neat-trick-to-capture-click-outside-react-component-5604830beb7f
 
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 
 class LogInForm extends Component{
 
@@ -29,6 +30,9 @@ class LogInForm extends Component{
     }
 
     render(){
+        if (this.props.isLoggedIn){
+            return <Redirect to={'/dashboard/'}/>;
+          }
         return(
             <div ref={el => this.node = el} className='logInForm'>
                 <h1>Log In</h1>
