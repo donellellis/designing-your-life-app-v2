@@ -8,7 +8,7 @@ import Here from './Here'
 import Dashboard from './Dashboard'
 
 // defines environmental variables
-// const backendBaseUrl = (process.env.NODE_ENV === "development") ? process.env.REACT_APP_DEVELOPMENT : process.env.REACT_APP_PRODUCTION
+const backendBaseUrl = (process.env.NODE_ENV === "development") ? process.env.REACT_APP_DEVELOPMENT : process.env.REACT_APP_PRODUCTION
 
 class App extends Component {
 
@@ -58,7 +58,7 @@ class App extends Component {
   handleSignUp(e){
     e.preventDefault()
     console.log('in sign up')
-    axios.post( 'http://localhost:4000/users/signup', {
+    axios.post( backendBaseUrl + '/users/signup/', {
       email: this.state.email,
       password: this.state.password
     })
@@ -72,7 +72,7 @@ class App extends Component {
 
   handleLogIn(e) {
     e.preventDefault()
-    axios.post('http://localhost:4000/users/login/', {
+    axios.post(backendBaseUrl + '/users/login/', {
       email: this.state.email,
       password: this.state.password
     })

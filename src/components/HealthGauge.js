@@ -7,7 +7,7 @@ class HealthGauge extends Component{
                 <h1>Health Gauge</h1>
                 <label>
                     Health Level
-                    <input className='inputField'></input>
+                    
                 </label>
                 <label>
                     Health Assessment
