@@ -1,5 +1,36 @@
 .complexGauge{
-    @include modalForm;
+    @include modalRoundBackground;
     position: initial;
     border-color: $textColorAccent;
+
+    h1{
+        @include sub-heading;
+        margin: 0px 0px 10px 0px;
+    }
+
+    h2{
+        @include sub-heading;
+        color: $textColorPrimary;
+        font-weight: normal;
+        margin: 0px;
+        font-size: 24px;
+    }
+    h3{
+        font-size: 100px;
+        margin: 0px;
+    }
+    p{
+        @include paragraph;
+        @include inputSingleLine;
+        width: 250px;
+        padding: 5px;
+    }
+
+    .fas{
+        font-size: 30px;
+        color: $textColorTertiary;
+        background-color: transparent;
+        border: none;
+        margin-top: 15px;
+    }
 }

@@ -4,7 +4,6 @@ import axios from 'axios'
 
 import Home from './Home'
 import NavBar from './NavBar'
-import Here from './Here'
 import Dashboard from './Dashboard'
 
 // defines environmental variables
@@ -60,7 +59,11 @@ class App extends Component {
     console.log('in sign up')
     axios.post( backendBaseUrl + '/users/signup/', {
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      healthGauge: {
+        level: '0',
+        assessment: 'Write a short assessment'
+      }
     })
     .then( response => {
       localStorage.token = response.data.token
@@ -91,16 +94,9 @@ class App extends Component {
           <Route exact path='/' render={(props) => (
             this.state.isLoggedIn ? (
               <Redirect to='/dashboard'/>
-            ) : (
-              <Home isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleLogIn={this.handleLogIn} handleSignUp={this.handleSignUp}/>
-            )
-          )}/>
-          <Route exact path='/here/' render={(props) => (
-            this.state.isLoggedIn ? (
-              <Here isLoggedIn={this.state.isLoggedIn}/>
-            ) : (
-              <Redirect to='/'/>
-            )
+          ) : (
+            <Home isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleLogIn={this.handleLogIn} handleSignUp={this.handleSignUp}/>
+          ) 
           )}/>
             <Route exact path='/dashboard/' render={(props) => (
             this.state.isLoggedIn ? (

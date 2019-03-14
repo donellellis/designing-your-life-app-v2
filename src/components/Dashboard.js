@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-
-import HealthGauge from './HealthGauge'
-import WorkGauge from './WorkGauge'
-import PlayGauge from './PlayGauge'
-import LoveGauge from './LoveGauge'
+import HealthGauge from './healthGauge/HealthGauge'
 
 
 class Dashboard extends Component{
+   
     render(){
+
         return(
             <div className='dashboard'>
                 <div className='dashboard-instructions'>
