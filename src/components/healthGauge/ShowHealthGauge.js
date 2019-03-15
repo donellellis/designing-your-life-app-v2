@@ -5,13 +5,6 @@ const backendBaseUrl = (process.env.NODE_ENV === "development") ? process.env.RE
 const postEndpoint = '/health/show'
 
 class ShowHealthGauge extends Component{
-    constructor(){
-        super()
-        this.state = {
-            level: '',
-            assessment: ''
-        }
-    }
 
     componentDidMount(){
         axios.get(backendBaseUrl + postEndpoint, {
@@ -21,10 +14,8 @@ class ShowHealthGauge extends Component{
         })
         .then((res) => {
             const healthData = res.data
-            this.setState({
-                level: healthData.level,
-                assessment: healthData.assessment
-            })
+            // lifting state up to closest commom ancestor
+            this.props.handleHealthGaugeChange(healthData.assessment, healthData.level)
         })
         .catch((err) => {
             console.log(err)
@@ -36,10 +27,10 @@ class ShowHealthGauge extends Component{
         <div className='complexGauge'>
             <h1>Health Gauge</h1>
             <h2>Health Level</h2>
-            <h3>{this.state.level}</h3>
+            <h3>{this.props.level}</h3>
             <h2>Health Assessment</h2>
-            <p>{this.state.assessment}</p>
-            <button className='fas fa-pen' onClick={this.props.toggleIsHidden}></button>
+            <p>{this.props.assessment}</p>
+            <button className='fas fa-pen' onClick={this.props.toggleIsHidden} ></button>
         </div>
         )
     }
