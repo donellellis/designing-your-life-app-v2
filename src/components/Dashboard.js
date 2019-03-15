@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import HealthGauge from './healthGauge/HealthGauge'
 import WorkGauge from './workGauge/WorkGauge'
+import LoveGauge from './loveGauge/LoveGauge'
 import PlayGauge from './playGauge/PlayGauge'
 
 
@@ -19,6 +20,7 @@ class Dashboard extends Component{
                 </div>
                 <HealthGauge/>
                 <WorkGauge/>
+                <LoveGauge/>
                 <PlayGauge/>
             </div>
         )
