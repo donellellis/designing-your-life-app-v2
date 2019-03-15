@@ -2,4 +2,53 @@
     @include modalForm;
     position: initial;
     border-color: $textColorAccent;
+
+    h1{
+        @include sub-heading;
+        margin: 0px 0px 10px 0px;
+    }
+
+    h2{
+        @include sub-heading;
+        color: $textColorPrimary;
+        font-weight: normal;
+        margin: 0px;
+        font-size: 24px;
+        text-align: center;
+    }
+    h3{
+        font-size: 100px;
+        margin: 0px;
+    }
+    p{
+        @include paragraph;
+        @include inputSingleLine;
+        width: 250px;
+        margin-top: 15px;
+    }
+
+    .fas{
+        font-size: 30px;
+        color: $textColorPrimary;
+        background-color: transparent;
+        border: none;
+        margin-top: 15px;
+    }
+
+    .gaugeSelect{
+        width: 100px;
+        height: 100px;
+    }
+
+    .gaugeLevel{
+        font-size: 100px;
+        color: $textColorPrimary;
+        border: none;
+        background: transparent;
+        outline: none;
+    }
+
+    .submitButton{
+        margin-top: 10px;
+    }
 }
