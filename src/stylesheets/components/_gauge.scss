@@ -22,9 +22,11 @@
     }
     p{
         @include paragraph;
-        @include inputSingleLine;
+        text-align:center;
+        color: $textColorTertiary;
         width: 250px;
         margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     .fas{
@@ -32,7 +34,6 @@
         color: $textColorPrimary;
         background-color: transparent;
         border: none;
-        margin-top: 15px;
     }
 
     .gaugeSelect{

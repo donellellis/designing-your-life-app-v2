@@ -4,12 +4,15 @@ import ShowHealthGauge from './ShowHealthGauge'
 import EditHealthGauge from './EditHealthGauge'
 
 class HealthGauge extends Component{
-    constructor(props){
-        super(props)
+    constructor(){
+        super()
         this.state = {
-            isHidden: true
+            level: '',
+            assessment: '',
+            isHidden: true,
         }
         this.toggleIsHidden = this.toggleIsHidden.bind(this)
+        this.handleHealthGaugeChange = this.handleHealthGaugeChange.bind(this)
     }
 
     toggleIsHidden(){
@@ -18,11 +21,18 @@ class HealthGauge extends Component{
         })
     }
 
+    handleHealthGaugeChange(assessment, level){
+        this.setState({
+            assessment,
+            level
+        })
+    }
+
     render(){
         return(
         <div>
-            {!this.state.isHidden && <EditHealthGauge toggleIsHidden={this.toggleIsHidden}/>}
-            {this.state.isHidden && <ShowHealthGauge toggleIsHidden={this.toggleIsHidden}/>}
+            {!this.state.isHidden && <EditHealthGauge level ={this.state.level} assessment={this.state.assessment} toggleIsHidden={this.toggleIsHidden}/>}
+            {this.state.isHidden && <ShowHealthGauge level ={this.state.level} assessment={this.state.assessment} handleHealthGaugeChange={this.handleHealthGaugeChange} toggleIsHidden={this.toggleIsHidden}/>}
         </div>
         )
     }
