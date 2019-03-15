@@ -63,6 +63,18 @@ class App extends Component {
       healthGauge: {
         level: '0',
         assessment: 'Write a short assessment'
+      },
+      workGauge: {
+        level: '0',
+        assessment: 'Write a short assessment'
+      },
+      loveGauge: {
+        level: '0',
+        assessment: 'Write a short assessment'
+      },
+      playGauge: {
+        level: '0',
+        assessment: 'Write a short assessment'
       }
     })
     .then( response => {
