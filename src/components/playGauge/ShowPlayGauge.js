@@ -5,6 +5,14 @@ const backendBaseUrl = (process.env.NODE_ENV === "development") ? process.env.RE
 const postEndpoint = '/play/show'
 
 class ShowPlayGauge extends Component{
+    constructor(props){
+        super(props)
+        this.handleToggleVisibility = this.handleToggleVisibility.bind(this)
+    }
+
+    handleToggleVisibility(){
+        this.props.toggleIsHidden()
+    }
 
     componentDidMount(){
         axios.get(backendBaseUrl + postEndpoint, {
@@ -30,7 +38,7 @@ class ShowPlayGauge extends Component{
             <h3>{this.props.level}</h3>
             <h2>Play Assessment</h2>
             <p>{this.props.assessment}</p>
-            <button className='fas fa-pen' onClick={this.props.toggleIsHidden} ></button>
+            <button className='fas fa-pen' onClick={this.handleToggleVisibility} ></button>
         </div>
         )
     }

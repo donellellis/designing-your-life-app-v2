@@ -5,27 +5,24 @@ const backendBaseUrl = (process.env.NODE_ENV === "development") ? process.env.RE
 const postEndpoint = '/love/edit'
 
 class EditLoveGauge extends Component{
-    constructor(){
-        super()
-        this.state = {
-            level: '',
-            assessment: ''
-        }
+    constructor(props){
+        super(props)
         this.handleLevelChange = this.handleLevelChange.bind(this)
         this.handleAssessmentChange = this.handleAssessmentChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleToggleVisibility = this.handleToggleVisibility.bind(this)
     }
     
     handleLevelChange(event){
-        this.setState({
-            level: event.target.value
-        })
+        this.props.handleLoveLevelChange(event.target.value)
     }
 
     handleAssessmentChange(event){
-        this.setState({
-            assessment: event.target.value
-        })
+        this.props.handleLoveAssessmentChange(event.target.value)
+    }
+
+    handleToggleVisibility(){
+        this.props.toggleIsHidden()
     }
 
 
@@ -38,13 +35,13 @@ class EditLoveGauge extends Component{
                 Authorization: 'Bearer ' + localStorage.token
             },
             data: {
-                level: this.state.level,
-                assessment: this.state.assessment
+                level: this.props.level,
+                assessment: this.props.assessment
             }
         })
         .then((res) => {
             if(res.status === 200){
-                this.props.toggleIsHidden()
+                this.handleToggleVisibility()
             }
         })
         event.preventDefault()
@@ -57,7 +54,7 @@ class EditLoveGauge extends Component{
                 <h1>Love Gauge</h1>
                 <label>
                     <h2>Love Level</h2>
-                    <select className='gaugeLevel' value={this.state.level} onChange={this.handleLevelChange}>
+                    <select className='gaugeLevel' value={this.props.level} onChange={this.handleLevelChange}>
                         <option value='0'>0</option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
@@ -67,7 +64,7 @@ class EditLoveGauge extends Component{
                 </label>
                 <label>
                     <h2>Love Assessment</h2>
-                    <input className='inputField' type='text' value={this.state.assessment} onChange={this.handleAssessmentChange}></input>
+                    <input className='inputField' type='text' value={this.props.assessment} onChange={this.handleAssessmentChange}></input>
                 </label>
                 <input className='submitButton' type='submit' value='Save Edits' ></input>
                 </form>
