@@ -32,7 +32,7 @@ class ShowLoveGauge extends Component{
    
     render(){
         return(
-        <div className='complexGauge'>
+        <div className='simpleGauge'>
             <h1>Love Gauge</h1>
             <h2>Love Level</h2>
             <h3>{this.props.level}</h3>

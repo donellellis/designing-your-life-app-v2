@@ -32,7 +32,7 @@ class ShowWorkGauge extends Component{
    
     render(){
         return(
-        <div className='complexGauge'>
+        <div className='simpleGauge'>
             <h1>Work Gauge</h1>
             <h2>Work Level</h2>
             <h3>{this.props.level}</h3>

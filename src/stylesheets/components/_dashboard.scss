@@ -3,11 +3,10 @@
     height: calc(100vh - 35px);
     display: flex;
     justify-content: flex-start;
-    flex-flow: wrap;
     align-items: center;
 }
 .dashboard-instructions{
-    margin: 0px 50px;
+    margin: 0px 40px;
     width: 300px;
     h1{
         @include heading;
@@ -24,4 +23,10 @@
         @include paragraph;
         color: $textColorSecondary;
     }
+}
+
+.dashboard-gauges{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }

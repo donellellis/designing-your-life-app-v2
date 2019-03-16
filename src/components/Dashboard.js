@@ -8,7 +8,6 @@ import PlayGauge from './playGauge/PlayGauge'
 class Dashboard extends Component{
    
     render(){
-
         return(
             <div className='dashboard'>
                 <div className='dashboard-instructions'>
@@ -18,10 +17,12 @@ class Dashboard extends Component{
                     <h2>Assessment</h2>
                     <p>Think about where you are now and write a short assessment.</p>
                 </div>
-                <HealthGauge/>
-                <WorkGauge/>
-                <LoveGauge/>
+                <div className='dashboard-gauges'>
+                <HealthGauge />
+                <WorkGauge />
+                <LoveGauge />
                 <PlayGauge/>
+                </div>
             </div>
         )
     }

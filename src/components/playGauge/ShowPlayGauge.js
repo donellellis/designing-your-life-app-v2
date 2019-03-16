@@ -32,7 +32,7 @@ class ShowPlayGauge extends Component{
    
     render(){
         return(
-        <div className='complexGauge'>
+        <div className='simpleGauge'>
             <h1>Play Gauge</h1>
             <h2>Play Level</h2>
             <h3>{this.props.level}</h3>

@@ -32,7 +32,7 @@ class ShowHealthGauge extends Component{
    
     render(){
         return(
-        <div className='complexGauge'>
+        <div className='simpleGauge'>
             <h1>Health Gauge</h1>
             <h2>Health Level</h2>
             <h3>{this.props.level}</h3>
