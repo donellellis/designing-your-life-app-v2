@@ -13,9 +13,11 @@ class WorkGauge extends Component{
         }
         this.toggleIsHidden = this.toggleIsHidden.bind(this)
         this.handleWorkGaugeChange = this.handleWorkGaugeChange.bind(this)
+        this.handleWorkLevelChange = this.handleWorkLevelChange.bind(this)
+        this.handleWorkAssessmentChange = this.handleWorkAssessmentChange.bind(this)
     }
 
-    toggleIsHidden(){
+    toggleIsHidden(isHidden){
         this.setState({
             isHidden: !this.state.isHidden
         })
@@ -28,12 +30,24 @@ class WorkGauge extends Component{
         })
     }
 
+    handleWorkLevelChange(level){
+        this.setState({
+            level
+        })
+    }
+
+    handleWorkAssessmentChange(assessment){
+        this.setState({
+            assessment
+        })
+    }
+
     render(){
         return(
-        <div>
-            {!this.state.isHidden && <EditWorkGauge level ={this.state.level} assessment={this.state.assessment} toggleIsHidden={this.toggleIsHidden}/>}
-            {this.state.isHidden && <ShowWorkGauge level ={this.state.level} assessment={this.state.assessment} handleWorkGaugeChange={this.handleWorkGaugeChange} toggleIsHidden={this.toggleIsHidden}/>}
-        </div>
+            <div>
+                {!this.state.isHidden && <EditWorkGauge level ={this.state.level} assessment={this.state.assessment} isHidden={this.state.isHidden} toggleIsHidden={this.toggleIsHidden} handleWorkLevelChange={this.handleWorkLevelChange} handleWorkAssessmentChange={this.handleWorkAssessmentChange}/>}
+                {this.state.isHidden && <ShowWorkGauge level ={this.state.level} assessment={this.state.assessment} handleWorkGaugeChange={this.handleWorkGaugeChange} isHidden={this.state.isHidden} toggleIsHidden={this.toggleIsHidden}/>}
+            </div>
         )
     }
 }

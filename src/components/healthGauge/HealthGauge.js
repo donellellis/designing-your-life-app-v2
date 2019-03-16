@@ -13,9 +13,11 @@ class HealthGauge extends Component{
         }
         this.toggleIsHidden = this.toggleIsHidden.bind(this)
         this.handleHealthGaugeChange = this.handleHealthGaugeChange.bind(this)
+        this.handleHealthLevelChange = this.handleHealthLevelChange.bind(this)
+        this.handleHealthAssessmentChange = this.handleHealthAssessmentChange.bind(this)
     }
 
-    toggleIsHidden(){
+    toggleIsHidden(isHidden){
         this.setState({
             isHidden: !this.state.isHidden
         })
@@ -28,12 +30,24 @@ class HealthGauge extends Component{
         })
     }
 
+    handleHealthLevelChange(level){
+        this.setState({
+            level
+        })
+    }
+
+    handleHealthAssessmentChange(assessment){
+        this.setState({
+            assessment
+        })
+    }
+
     render(){
         return(
-        <div>
-            {!this.state.isHidden && <EditHealthGauge level ={this.state.level} assessment={this.state.assessment} toggleIsHidden={this.toggleIsHidden}/>}
-            {this.state.isHidden && <ShowHealthGauge level ={this.state.level} assessment={this.state.assessment} handleHealthGaugeChange={this.handleHealthGaugeChange} toggleIsHidden={this.toggleIsHidden}/>}
-        </div>
+            <div>
+                {!this.state.isHidden && <EditHealthGauge level ={this.state.level} assessment={this.state.assessment} isHidden={this.state.isHidden} toggleIsHidden={this.toggleIsHidden} handleHealthLevelChange={this.handleHealthLevelChange} handleHealthAssessmentChange={this.handleHealthAssessmentChange}/>}
+                {this.state.isHidden && <ShowHealthGauge level ={this.state.level} assessment={this.state.assessment} handleHealthGaugeChange={this.handleHealthGaugeChange} isHidden={this.state.isHidden} toggleIsHidden={this.toggleIsHidden}/>}
+            </div>
         )
     }
 }
