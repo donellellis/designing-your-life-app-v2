@@ -64,7 +64,7 @@ class EditHealthGauge extends Component{
                 </label>
                 <label>
                     <h2>Health Assessment</h2>
-                    <input className='inputField' type='text' value={this.props.assessment} onChange={this.handleAssessmentChange}></input>
+                    <input className='inputField' type='text' value={this.props.assessment} placeholder='Write a short assessment' onChange={this.handleAssessmentChange}></input>
                 </label>
                 <input className='submitButton' type='submit' value='Save Edits' ></input>
                 </form>

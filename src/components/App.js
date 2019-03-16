@@ -61,20 +61,20 @@ class App extends Component {
       email: this.state.email,
       password: this.state.password,
       healthGauge: {
-        level: '0',
-        assessment: 'Write a short assessment'
+        level: '',
+        assessment: ''
       },
       workGauge: {
-        level: '0',
-        assessment: 'Write a short assessment'
+        level: '',
+        assessment: ''
       },
       loveGauge: {
-        level: '0',
-        assessment: 'Write a short assessment'
+        level: '',
+        assessment: ''
       },
       playGauge: {
-        level: '0',
-        assessment: 'Write a short assessment'
+        level: '',
+        assessment: ''
       }
     })
     .then( response => {

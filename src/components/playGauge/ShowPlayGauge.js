@@ -35,9 +35,9 @@ class ShowPlayGauge extends Component{
         <div className='simpleGauge'>
             <h1>Play Gauge</h1>
             <h2>Play Level</h2>
-            <h3>{this.props.level}</h3>
+            <h3>{this.props.level || '0'}</h3>
             <h2>Play Assessment</h2>
-            <p>{this.props.assessment}</p>
+            <p>{this.props.assessment || 'Write a short assessment'}</p>
             <button className='fas fa-pen' onClick={this.handleToggleVisibility} ></button>
         </div>
         )
