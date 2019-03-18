@@ -7,6 +7,7 @@ The Designing Your Life: Companion App is a web-based workbook for Bill Burnett 
 For deployment and testing purposes, clone this repository on GitHub.
 
 ![Designing Your Life: Companion App UI](https://i.imgur.com/VvEOeyA.jpg)
+![Designing Your Life: Companion App UI](https://i.imgur.com/A0RihKc.jpg)
 
 ## Installing
 ### Front End
