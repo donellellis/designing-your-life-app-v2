@@ -67,7 +67,6 @@ class ShowWorkGauge extends Component{
             <h1>Work Gauge</h1>
             <h2>Work Level</h2>
             <h3>{this.props.level || '0'}</h3>
-            <i className='fas fa-plus-circle'></i>
             <h2>Work Assessment</h2>
             <p>{this.props.assessment || 'Write a short assessment'}</p>
             <button className='fas fa-pen' onClick={this.handleToggleVisibility} ></button>

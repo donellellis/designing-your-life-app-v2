@@ -4,7 +4,6 @@ import WorkGauge from './workGauge/WorkGauge'
 import LoveGauge from './loveGauge/LoveGauge'
 import PlayGauge from './playGauge/PlayGauge'
 
-
 class Dashboard extends Component{
    
     render(){
