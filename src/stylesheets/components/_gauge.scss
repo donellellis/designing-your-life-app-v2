@@ -20,7 +20,18 @@
     }
 }
 
-.complexGauge, .simpleGauge:hover{
+.simpleGauge:hover{
+    border-color: $textColorAccent;
+    .fa-plus-circle{
+        font-size: 30px;
+        color: $textColorPrimary;
+        background-color: transparent;
+        border: none;
+        display: inline-block;
+    }
+}
+
+.complexGauge {
     @include modalForm;
     position: initial;
     border-color: $textColorAccent;
@@ -52,7 +63,7 @@
         margin-bottom: 15px;
     }
 
-    .fas{
+    .fa-pen{
         font-size: 30px;
         color: $textColorPrimary;
         background-color: transparent;
@@ -76,8 +87,12 @@
         margin-top: 10px;
     }
 
-    h2, .fas, p{
+    h2, .fa-pen, p{
         display:block;
+    }
+
+    .fa-plus-circle{
+        display: none;
     }
 
 }

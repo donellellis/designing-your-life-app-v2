@@ -9,7 +9,7 @@ class HealthGauge extends Component{
         this.state = {
             level: '',
             assessment: '',
-            isHidden: true,
+            isHidden: true
         }
         this.toggleIsHidden = this.toggleIsHidden.bind(this)
         this.handleHealthGaugeChange = this.handleHealthGaugeChange.bind(this)
